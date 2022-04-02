@@ -10,6 +10,7 @@ export default {
     {
       path: ':id',
       name: 'entry',
+      props: true,
       component: () => import('../views/EntryView.vue'),
     }
   ]

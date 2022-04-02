@@ -1,5 +1,8 @@
 <template>
-  <button class="btn__float btn btn-success fs-3"><i class="bi" :class="icon"></i></button>
+  <button class="btn__float btn btn-success fs-3"
+          @click="eventEmited">
+        <i class="bi" :class="icon"></i>
+    </button>
 </template>
 
 <script>
@@ -10,6 +13,11 @@ export default {
       default: 'bi-file-earmark-plus',
     },
   },
+  methods: {
+      eventEmited(){
+          this.$emit('eventEmitedFromButtonActions')
+      },
+  }
 }
 </script>
 <style lang="scss" scoped>

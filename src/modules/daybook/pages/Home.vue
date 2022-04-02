@@ -1,6 +1,9 @@
 <template>
   <Navbar/>
-  <div class="container">
+
+  <Spiner v-if="isLoading"/>
+  
+  <div class="container" v-else>
     <main class="row wrapper__daybook">
       <div class="col-12 col-md-4">
         <EntryesList/>
@@ -10,16 +13,22 @@
       </div>
     </main>
   </div>
+
 </template>
 
 <script>
 import { defineAsyncComponent } from "vue"
+import { mapState } from "vuex"
 
 export default {
   components: {
     Navbar: defineAsyncComponent(() => import("../components/Navbar.vue")),
     EntryesList: defineAsyncComponent(() => import("../components/EntryList.vue")),
+    Spiner: defineAsyncComponent(() => import("../components/Spiner.vue"))
   },
+  computed: {
+    ...mapState('storeDayBook',['isLoading']),
+  }
 }
 </script>
 

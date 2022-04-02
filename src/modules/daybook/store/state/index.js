@@ -1,6 +1,10 @@
+import {options,hashCode} from '../../utils'
+
 const state = () =>{
   return {
-    arrayEntries: [], // array of entries
+    isLoading: true,
+    message: '',
+    arrayEntries: [],
   }
 }
 

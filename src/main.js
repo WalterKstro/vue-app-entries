@@ -6,7 +6,6 @@ import './styles/style.scss'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 
 
-createApp(App)
-.use(store)
-.use(router)
-.mount('#app')
+const app = createApp(App)
+app.use(store).use(router).mount('#app');
+app.config.unwrapInjectedRef = true
