@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en la vista home del modulo auth Debe de renderizar correctamente el componente View 1`] = `
+"<h1>Home Sidebar</h1>
+<button class=\\"btn btn-primary\\">Primary</button>"
+`;

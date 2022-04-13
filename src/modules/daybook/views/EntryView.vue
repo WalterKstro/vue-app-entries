@@ -40,6 +40,7 @@ import {options} from '../utils/index.js'
 import { optionDeleteSweetAlert, optionDeletedSweetAlert } from '../utils/optionSweetAlert.js'
 import Swal from 'sweetalert2'
 export default {
+  name: 'EntryView',
   props: {
     id: {
       type: String,

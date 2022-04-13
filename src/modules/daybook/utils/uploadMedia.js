@@ -1,4 +1,4 @@
-import { uploadMedia } from '../../../api/index.js'
+import { instanceAsset } from '../../../api/index.js'
 
 export default async ( file ) => {
     try {
@@ -7,7 +7,7 @@ export default async ( file ) => {
         formData.append( 'file', file );
         formData.append( 'upload_preset', 'daybook-vue' );
 
-        const { data } = await uploadMedia.post( '', formData );
+        const { data } = await instanceAsset.post( '', formData );
         return data.secure_url;
 
     } catch (error) {

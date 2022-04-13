@@ -8,6 +8,7 @@
 <script>
 import { defineAsyncComponent } from 'vue'
 export default {
+  name: 'NoEntrySelected',
   components: {
     ButtonAction: defineAsyncComponent(() => import('../components/ButtonActions.vue')),
   },

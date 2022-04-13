@@ -4,7 +4,7 @@ const instance = Axios.create({
     baseURL: 'https://vue-entries-default-rtdb.firebaseio.com/',
 });
 
-export const uploadMedia = Axios.create({
+export const instanceAsset = Axios.create({
     baseURL: 'https://api.cloudinary.com/v1_1/dwgtayvuu/image/upload',
 });
 
