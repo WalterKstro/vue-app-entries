@@ -90,4 +90,61 @@ describe('Pruebas, en el state del modulo daybook', () => {
 
     });
 
+    /* ACTIONS */
+
+    test('Debe de obtener todas las entradas, con la acción asyncGetAllEntries', async () => {
+        const { dispatch, state } = vuexStore( initialState );
+        await dispatch('storeDayBook/asyncGetAllEntries');
+        
+        const entries = state.storeDayBook.arrayEntries;
+
+        expect( entries.length ).toBe( 8 );
+    })
+
+    test('Debe de actualizar una entrada, con la acción asyncUpdateEntry', async () => {
+        const { dispatch, state } = store;
+        const payload =  {
+            id: '-MyIm6N1MD0hlNXSBT9O',
+            date: 'miércoles, 16 de marzo de 2022',
+            description: 'The product itself is focused on data collection; from the first 50 companies ESGgo spoke to, they learned that there were no tools available. The company learned that most ESG tracking is currently done in some pretty esoteric systems — mostly spreadsheets or collaborative databases. External rating agencies may have their own tools, of course, but for internal use, it’s slim pickings.',
+            title: 'Nuevo titulo',
+          }
+
+        await dispatch('storeDayBook/asyncUpdateEntry', payload);
+        await dispatch('storeDayBook/asyncGetAllEntries');
+
+        const entries = state.storeDayBook.arrayEntries;
+        const entryUpdated = entries.find( entry => entry.id == payload.id );
+
+        expect( entryUpdated ).toMatchObject( payload );
+        expect( entryUpdated.title ).toBe( payload.title );
+    })
+
+    test('Debe de crear y eliminar una entrada, con la acción asyncCreateEntry y asyncDeleteEntry', async () => {
+        const { dispatch, state } = store;
+        const payload =  {
+            date: 'martes, 19 de abril de 2022',
+            description: 'The product itself is focused on data collection; from the first 50 companies ESGgo spoke to, they learned that there were no tools available. The company learned that most ESG tracking is currently done in some pretty esoteric systems — mostly spreadsheets or collaborative databases. External rating agencies may have their own tools, of course, but for internal use, it’s slim pickings.',
+            title: 'Este es el titulo de la nueva entrada',
+          }
+        const idNewEntry =  await dispatch('storeDayBook/asyncCreateEntry', payload);
+        await dispatch('storeDayBook/asyncGetAllEntries');
+        
+        const entries = state.storeDayBook.arrayEntries;
+        const entryCreated = entries.find( entry => entry.id == idNewEntry );
+        
+        expect( entryCreated ).toMatchObject( { ...payload, id:idNewEntry} );
+        expect( entryCreated).toBeTruthy();
+        
+        await dispatch('storeDayBook/asyncDeleteEntry', entryCreated);
+        await dispatch('storeDayBook/asyncGetAllEntries');
+
+        const entryDeleted = entries.find( entry => entry.id == idNewEntry );
+
+        expect( entryDeleted ).toBeFalsy();
+
+    })
+
+
+
 })
