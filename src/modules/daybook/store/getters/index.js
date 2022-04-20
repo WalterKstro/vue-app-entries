@@ -1,6 +1,6 @@
 const getters = {
   filteredArrayEntriesByField (state) {
-    return field => state.arrayEntries.filter(
+    return (field = '') => state.arrayEntries.filter(
       entry => entry.title.toLowerCase().includes(field.toLowerCase())
     )
   },
