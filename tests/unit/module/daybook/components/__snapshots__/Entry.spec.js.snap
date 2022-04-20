@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en el componente <Entry/> Debe mostrar el componente, correctamente 1`] = `
+"<div class=\\"card mb-2\\">
+  <div class=\\"card-body\\">
+    <h5 class=\\"card-title\\">The Intuitive Vue Framework</h5>
+    <p class=\\"card-text m-0\\">The product itself is focused on data collection; from the first 50 companies ESGgo spoke...</p>
+    <p class=\\"card-text text-end\\"><small class=\\"text-muted\\">miércoles, 16 de marzo de 2022</small></p>
+  </div>
+</div>"
+`;
