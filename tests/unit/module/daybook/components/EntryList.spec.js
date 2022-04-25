@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 import storeDayBook from "../../../../../src/modules/daybook/store/index.js";
-import { initialState, afterState } from "../mock/states-daybook.js";
+import { afterState } from "../mock/states-daybook.js";
 import { shallowMount } from "@vue/test-utils";
 import EntryList from "../../../../../src/modules/daybook/components/EntryList.vue";
 

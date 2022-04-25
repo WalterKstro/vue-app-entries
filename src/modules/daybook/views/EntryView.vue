@@ -88,10 +88,10 @@ export default {
     },
     async deleteCurrentEntry() {
         const {isConfirmed} = await Swal.fire( optionDeleteSweetAlert )
+
         if(isConfirmed){
-            this.asyncDeleteEntry(this.entry)
-            
-            Swal.fire( optionDeletedSweetAlert )
+            this.asyncDeleteEntry( this.entry )
+            await Swal.fire( optionDeletedSweetAlert )
             
             this.$router.push({name: 'entry-no-selected'})
         }
