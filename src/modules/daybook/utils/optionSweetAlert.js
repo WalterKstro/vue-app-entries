@@ -15,3 +15,4 @@ export const optionDeletedSweetAlert = {
     showConfirmButton: false,
     timer: 1500
 }
+

@@ -1,5 +1,3 @@
-import {options,hashCode} from '../../utils'
-
 const state = () =>{
   return {
     isLoading: true,

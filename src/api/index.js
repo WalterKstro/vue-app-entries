@@ -1,10 +1,19 @@
-import Axios from 'axios'
+import axios from 'axios'
 
-const instanceAxios = Axios.create({
+const instanceAxios = axios.create({
     baseURL: 'https://vue-entries-default-rtdb.firebaseio.com/',
 });
 
-export const instanceAsset = Axios.create({
+// interceptor for request authentication
+instanceAxios.interceptors.request.use( config => {
+    const { idToken } = JSON.parse(sessionStorage.getItem('userAuthenticated'));
+    config.params = {
+        auth: idToken,
+    }
+    return config;
+} );
+
+export const instanceAsset = axios.create({
     baseURL: 'https://api.cloudinary.com/v1_1/dwgtayvuu/image/upload',
 });
 
